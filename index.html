@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Indonesia Kelas 6 - Bab 3: Temukan Minat, Tunjukkan Bakat</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Fredoka for Kid-friendly UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0f9ff;
+            color: #1e293b;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-heading {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+
+        .chat-bubble-left {
+            position: relative;
+            background: #ffffff;
+            border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-bubble-right {
+            position: relative;
+            background: #e0f2fe;
+            border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hide scrollbar for clean horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .portal-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(14, 165, 233, 0.2);
+        }
+        .portal-card.active {
+            ring-width: 3px;
+            transform: scale(1.02);
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .pulse-btn {
+            animation: pulse-subtle 2.5s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.35s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between pb-10">
+
+    <!-- Header App Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-white shadow-md font-bold text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-sky-600 block">Bahasa Indonesia • Kelas 6</span>
+                    <h1 class="font-heading font-bold text-slate-800 text-base md:text-lg leading-none">Bab 3: Temukan Minat, Tunjukkan Bakat</h1>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center space-x-2 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
+                <i class="fa-solid fa-star text-amber-400"></i>
+                <span class="text-xs font-bold text-sky-800">Media Interaktif</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 pt-6 flex-grow w-full space-y-6">
+
+        <!-- Welcome Banner & Portal Menu Grid Section -->
+        <section class="space-y-4">
+            <div class="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="z-10 text-center md:text-left space-y-2">
+                    <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm inline-block">
+                        <i class="fa-solid fa-book-open mr-1"></i> Pilihan Portal Pembelajaran
+                    </span>
+                    <h2 class="font-heading text-2xl md:text-3xl font-bold">Pilih Portal Materi Pembelajaran!</h2>
+                    <p class="text-sky-100 text-xs md:text-sm max-w-lg">
+                        Klik salah satu kartu menu di bawah ini untuk mempelajari materi Bab 3 atau mengerjakan Latihan Pemahaman.
+                    </p>
+                </div>
+                <div class="w-20 h-20 md:w-24 md:h-24 bg-white/10 rounded-2xl flex items-center justify-center text-4xl text-amber-300 shadow-inner flex-shrink-0 z-10">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+            </div>
+
+            <!-- Portal Grid Buttons (Always visible on Home Page) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                
+                <!-- Portal 1 Card -->
+                <button onclick="switchPortal(1)" id="btn-portal-1" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-sky-100 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-sky-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-sky-500 block">Portal 1</span>
+                        <h3 class="font-heading font-bold text-xs text-slate-800 leading-tight">Dialog Wawancara</h3>
+                    </div>
+                </button>
+
+                <!-- Portal 2 Card -->
+                <button onclick="switchPortal(2)" id="btn-portal-2" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-teal-100 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-teal-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-teal-500 block">Portal 2</span>
+                        <h3 class="font-heading font-bold text-xs text-slate-800 leading-tight">Wawancara Ucok</h3>
+                    </div>
+                </button>
+
+                <!-- Portal 3 Card -->
+                <button onclick="switchPortal(3)" id="btn-portal-3" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-purple-100 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-purple-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-magnifying-glass font-bold"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-purple-500 block">Portal 3</span>
+                        <h3 class="font-heading font-bold text-xs text-slate-800 leading-tight">Informasi Penting</h3>
+                    </div>
+                </button>
+
+                <!-- Portal 4 Card -->
+                <button onclick="switchPortal(4)" id="btn-portal-4" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-orange-100 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-orange-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-orange-500 block">Portal 4</span>
+                        <h3 class="font-heading font-bold text-xs text-slate-800 leading-tight">Kesimpulan</h3>
+                    </div>
+                </button>
+
+                <!-- Portal 5 Card -->
+                <button onclick="switchPortal(5)" id="btn-portal-5" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-indigo-100 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-indigo-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-500 block">Portal 5</span>
+                        <h3 class="font-heading font-bold text-xs text-slate-800 leading-tight">Minat & Bakat</h3>
+                    </div>
+                </button>
+
+                <!-- Portal 6 Card -->
+                <button onclick="switchPortal(6)" id="btn-portal-6" class="portal-card bg-white p-3.5 rounded-2xl border-2 border-amber-200 shadow-sm flex flex-col items-center text-center space-y-2 hover:border-amber-400 focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 block">Portal 6</span>
+                        <h3 class="font-heading font-bold text-xs text-amber-900 leading-tight">Latihan Kuis</h3>
+                    </div>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- DYNAMIC PORTAL CONTENT CONTAINER (Appears right below menu cards) -->
+        <div id="portal-content-area" class="scroll-mt-28 pt-2">
+
+            <!-- PORTAL 1 CONTENT -->
+            <section id="portal-1-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-sky-500 to-indigo-600 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="z-10 space-y-2 text-center md:text-left">
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block">Portal 1</span>
+                        <h2 class="font-heading text-2xl md:text-3xl font-bold">Mengenal Dialog Wawancara</h2>
+                        <p class="text-sky-100 text-sm max-w-md">Pelajari bagaimana tanya jawab berlangsung untuk menggali informasi dari tokoh inspiratif!</p>
+                    </div>
+                    <div class="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 z-10">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-md">
+                            <circle cx="100" cy="100" r="90" fill="#ffffff" opacity="0.2"/>
+                            <path d="M60,140 C60,110 80,100 100,100 C120,100 140,110 140,140" fill="#38bdf8"/>
+                            <circle cx="100" cy="70" r="25" fill="#fde047"/>
+                            <rect x="120" y="80" width="12" height="30" rx="6" fill="#475569"/>
+                            <path d="M115,95 C115,108 137,108 137,95" stroke="#94a3b8" stroke-width="3" fill="none"/>
+                            <line x1="126" y1="110" x2="126" y2="125" stroke="#475569" stroke-width="4"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-2xl p-5 border border-sky-100 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-xl">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-slate-800">Apa itu Pewawancara?</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Orang yang <strong class="text-sky-600">mengajukan pertanyaan</strong> untuk memperoleh informasi, data, atau kabar cerita tertentu.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 border border-indigo-100 shadow-sm space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xl">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-slate-800">Apa itu Narasumber?</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Tokoh atau orang yang <strong class="text-indigo-600">memberikan jawaban</strong> dan informasi karena memiliki keahlian, pengalaman, atau prestasi khusus.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-400 text-white flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-key text-lg"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-amber-900">4 Poin Penting dalam Membaca Dialog Wawancara</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <div class="bg-white p-3 rounded-xl border border-amber-100 flex items-start gap-3">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md text-xs">1</span>
+                            <p class="text-slate-700"><strong>Informasi Narasumber:</strong> Latar belakang, hobi, dan prestasi narasumber.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-100 flex items-start gap-3">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md text-xs">2</span>
+                            <p class="text-slate-700"><strong>Alasan Tindakan:</strong> Mengapa narasumber melakukan/menyukai hal tersebut.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-100 flex items-start gap-3">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md text-xs">3</span>
+                            <p class="text-slate-700"><strong>Peristiwa Pembelajaran:</strong> Proses, usaha, tantangan, dan latihan yang dilalui.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-100 flex items-start gap-3">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md text-xs">4</span>
+                            <p class="text-slate-700"><strong>Pesan Cerita:</strong> Amanat inspiratif bagi para pembaca.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTAL 2 CONTENT -->
+            <section id="portal-2-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 rounded-3xl p-6 text-white shadow-xl flex items-center justify-between">
+                    <div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block mb-1">Portal 2</span>
+                        <h2 class="font-heading text-2xl font-bold">Wawancara Ucok & Wartawan Cilik</h2>
+                        <p class="text-teal-100 text-xs md:text-sm">Simak dialog inspiratif Ucok Setiawan (Juara Lomba Robotik Tingkat Provinsi)</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                </div>
+
+                <div class="bg-slate-100 rounded-3xl p-4 md:p-6 space-y-4 border border-slate-200 max-h-[600px] overflow-y-auto">
+                    <!-- Chat 1 -->
+                    <div class="flex items-start gap-3 max-w-[85%]">
+                        <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Wartawan Cilik</span>
+                            <div class="chat-bubble-left p-4 text-slate-800 text-sm leading-relaxed border border-slate-200/60">
+                                Halo Ucok! Selamat atas predikat juara 1 Lomba Robotik Tingkat Provinsi! Boleh cerita bagaimana awal mula tertarik pada bidang elektronik dan robotik?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 2 -->
+                    <div class="flex items-start gap-3 max-w-[85%] ml-auto flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Ucok Setiawan</span>
+                            <div class="chat-bubble-right p-4 text-slate-800 text-sm leading-relaxed border border-sky-200 text-left">
+                                Halo! Terima kasih! Awalnya saat kecil aku suka sekali membongkar mainan mobil-mobilan dan radio bekas di rumah karena penasaran dengan mesin di dalamnya.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 3 -->
+                    <div class="flex items-start gap-3 max-w-[85%]">
+                        <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Wartawan Cilik</span>
+                            <div class="chat-bubble-left p-4 text-slate-800 text-sm leading-relaxed border border-slate-200/60">
+                                Apakah dari sekadar membongkar barang langsung bisa membuat robot?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 4 -->
+                    <div class="flex items-start gap-3 max-w-[85%] ml-auto flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Ucok Setiawan</span>
+                            <div class="chat-bubble-right p-4 text-slate-800 text-sm leading-relaxed border border-sky-200 text-left">
+                                Tentu tidak! Karena rasa penasaran itu, aku mulai rajin <strong class="text-sky-700">membaca buku sirkuit elektronik dasar</strong> dan <strong class="text-sky-700">menonton video panduan</strong> di internet.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 5 -->
+                    <div class="flex items-start gap-3 max-w-[85%]">
+                        <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Wartawan Cilik</span>
+                            <div class="chat-bubble-left p-4 text-slate-800 text-sm leading-relaxed border border-slate-200/60">
+                                Bagaimana peran orang tua dalam mendukung minatmu ini?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 6 -->
+                    <div class="flex items-start gap-3 max-w-[85%] ml-auto flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Ucok Setiawan</span>
+                            <div class="chat-bubble-right p-4 text-slate-800 text-sm leading-relaxed border border-sky-200 text-left">
+                                Ayah sangat mendukung! Ayah membantuku membelikan komponen sederhana dan mengantarku mendaftar ke <strong class="text-sky-700">klub robotik anak</strong> setiap akhir pekan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 7 -->
+                    <div class="flex items-start gap-3 max-w-[85%]">
+                        <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Wartawan Cilik</span>
+                            <div class="chat-bubble-left p-4 text-slate-800 text-sm leading-relaxed border border-slate-200/60">
+                                Kapan Ucok merasa semakin percaya diri dengan kemampuan ini?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 8 -->
+                    <div class="flex items-start gap-3 max-w-[85%] ml-auto flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Ucok Setiawan</span>
+                            <div class="chat-bubble-right p-4 text-slate-800 text-sm leading-relaxed border border-sky-200 text-left">
+                                Saat mengikuti lomba pertama kali. Meskipun grogi, aku mendapat <strong class="text-sky-700">tanggapan positif dari juri</strong>. Dari situ aku sadar kemampuan ini bisa terus diasah!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 9 -->
+                    <div class="flex items-start gap-3 max-w-[85%]">
+                        <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Wartawan Cilik</span>
+                            <div class="chat-bubble-left p-4 text-slate-800 text-sm leading-relaxed border border-slate-200/60">
+                                Apa pesan Ucok untuk teman-teman di rumah yang ingin menemukan bakatnya?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat 10 -->
+                    <div class="flex items-start gap-3 max-w-[85%] ml-auto flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-slate-500 mb-1 block">Ucok Setiawan</span>
+                            <div class="chat-bubble-right p-4 text-slate-800 text-sm leading-relaxed border border-sky-200 text-left">
+                                Jangan takut mencoba hal baru! Bakat itu bukan sesuatu yang tiba-tiba muncul sempurna, tapi <strong class="text-sky-700">minat yang terus dilatih dengan tekun dan pantang menyerah</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTAL 3 CONTENT -->
+            <section id="portal-3-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl p-6 text-white shadow-xl flex items-center justify-between">
+                    <div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block mb-1">Portal 3</span>
+                        <h2 class="font-heading text-2xl font-bold">Menemukan Informasi Penting</h2>
+                        <p class="text-purple-100 text-xs md:text-sm">Bedakan gagasan utama dengan rincian tambahan dari sebuah teks!</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-magnifying-glass font-bold"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-heading font-bold text-lg text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-table-list text-purple-500"></i> Informasi Utama vs Informasi Tambahan
+                    </h3>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-purple-50 text-purple-900 border-b border-purple-100">
+                                    <th class="p-3 rounded-l-xl font-heading">Kategori</th>
+                                    <th class="p-3 font-heading">Penjelasan Ringkas</th>
+                                    <th class="p-3 rounded-r-xl font-heading">Contoh dari Kisah Ucok</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="p-3 font-bold text-purple-700 whitespace-nowrap">Informasi Utama</td>
+                                    <td class="p-3 text-slate-600">Fakta inti atau poin paling penting yang ingin disampaikan narasumber.</td>
+                                    <td class="p-3 text-slate-800 font-medium bg-purple-50/30">Ucok menjuarai Lomba Robotik Tingkat Provinsi karena tekun belajar dan berlatih.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="p-3 font-bold text-pink-700 whitespace-nowrap">Informasi Tambahan</td>
+                                    <td class="p-3 text-slate-600">Rincian, latar belakang, atau penjelasan pendukung untuk memperjelas inti cerita.</td>
+                                    <td class="p-3 text-slate-800 font-medium bg-pink-50/30">Ucok pernah membongkar radio bekas di rumah saat masih kecil.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-3xl p-6 space-y-4 shadow-xl">
+                    <h3 class="font-heading font-bold text-xl text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> 5 Langkah Menemukan Informasi Penting
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
+                        <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-bold flex items-center justify-center text-xs">1</span>
+                            <p class="text-xs text-slate-200">Baca seluruh teks dialog dengan cermat dan seksama.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-bold flex items-center justify-center text-xs">2</span>
+                            <p class="text-xs text-slate-200">Tandai kata kunci / peristiwa penting.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-bold flex items-center justify-center text-xs">3</span>
+                            <p class="text-xs text-slate-200">Catat unsur 5W+1H (Apa, Siapa, Di mana, Kapan, Mengapa, Bagaimana).</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-bold flex items-center justify-center text-xs">4</span>
+                            <p class="text-xs text-slate-200">Kelompokkan informasi utama & tambahan.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-bold flex items-center justify-center text-xs">5</span>
+                            <p class="text-xs text-slate-200">Rangkum dengan kalimatmu sendiri secara ringkas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTAL 4 CONTENT -->
+            <section id="portal-4-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl p-6 text-white shadow-xl flex items-center justify-between">
+                    <div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block mb-1">Portal 4</span>
+                        <h2 class="font-heading text-2xl font-bold">Memahami Alasan & Kesimpulan</h2>
+                        <p class="text-orange-100 text-xs md:text-sm">Menarik kesimpulan berbasis bukti data cerita, bukan duga-duga semata!</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-orange-100 shadow-sm space-y-3">
+                    <h3 class="font-heading font-bold text-lg text-slate-800">Bagaimana Cara Menarik Kesimpulan yang Tepat?</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Kesimpulan adalah keputusan akhir yang diambil dari fakta-fakta yang ada dalam bacaan. Kesimpulan yang baik harus <strong class="text-orange-600">memiliki bukti langsung dari teks dialog</strong>, bukan rekaan atau prasangka tanpa alasan.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-5 border border-orange-200 space-y-4">
+                    <div class="flex items-center gap-2 text-orange-900 font-heading font-bold text-base">
+                        <i class="fa-solid fa-flask"></i> Simulasi Pertanyaan Kemungkinan dari Teks Ucok
+                    </div>
+
+                    <!-- Simulation Q1 -->
+                    <div class="bg-white p-4 rounded-2xl border border-orange-100 space-y-2">
+                        <p class="text-xs font-bold text-orange-600 uppercase">Pertanyaan Simulasi 1</p>
+                        <p class="text-sm font-semibold text-slate-800">"Mengapa Ucok bisa percaya diri saat lomba robotik?"</p>
+                        <div class="space-y-1.5 pt-1">
+                            <button onclick="checkSim(this, false)" class="w-full text-left text-xs p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+                                A. Karena Ucok merasa lebih pintar dari peserta lain.
+                            </button>
+                            <button onclick="checkSim(this, true)" class="w-full text-left text-xs p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+                                B. Karena mendapat tanggapan positif dari juri yang menyadarkan kemampuannya.
+                            </button>
+                        </div>
+                        <div class="sim-feedback hidden text-xs font-semibold p-2 rounded-lg mt-2"></div>
+                    </div>
+
+                    <!-- Simulation Q2 -->
+                    <div class="bg-white p-4 rounded-2xl border border-orange-100 space-y-2">
+                        <p class="text-xs font-bold text-orange-600 uppercase">Pertanyaan Simulasi 2</p>
+                        <p class="text-sm font-semibold text-slate-800">"Apa alasan Ayah Ucok membelikan komponen dan mendaftarkan Ucok ke klub robotik?"</p>
+                        <div class="space-y-1.5 pt-1">
+                            <button onclick="checkSim(this, true)" class="w-full text-left text-xs p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+                                A. Untuk mendukung minat dan rasa ingin tahu Ucok di bidang elektronik.
+                            </button>
+                            <button onclick="checkSim(this, false)" class="w-full text-left text-xs p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+                                B. Supaya Ucok tidak pernah bermain di luar rumah lagi.
+                            </button>
+                        </div>
+                        <div class="sim-feedback hidden text-xs font-semibold p-2 rounded-lg mt-2"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTAL 5 CONTENT -->
+            <section id="portal-5-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-6 text-white shadow-xl flex items-center justify-between">
+                    <div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block mb-1">Portal 5</span>
+                        <h2 class="font-heading text-2xl font-bold">Minat, Bakat, & Latihan</h2>
+                        <p class="text-blue-100 text-xs md:text-sm">Bagaimana rasa tertarik berubah menjadi keahlian yang hebat?</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-5 rounded-2xl border border-blue-100 shadow-sm text-center space-y-2">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mx-auto text-lg">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800">1. Minat</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Rasa suka, tertarik, atau penasaran terhadap suatu bidang atau aktivitas tertentu.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-indigo-100 shadow-sm text-center space-y-2">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold mx-auto text-lg">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800">2. Latihan</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Proses belajar, membaca, mencoba, dan mengulang secara konsisten tanpa menyerah.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm text-center space-y-2">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold mx-auto text-lg">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800">3. Bakat</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Potensi dan keahlian tinggi yang berkembang maksimal dari hasil latihan tekun.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-heading font-bold text-lg text-slate-800 text-center">Bagan Alur Perkembangan Minat Menjadi Bakat</h3>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-center pt-2">
+                        <div class="bg-sky-50 border border-sky-200 rounded-2xl p-3 w-full">
+                            <span class="text-xs font-bold text-sky-600 block">Langkah 1</span>
+                            <span class="font-heading font-bold text-slate-800 text-sm">Tertarik</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-down md:fa-arrow-right text-sky-400"></i>
+                        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 w-full">
+                            <span class="text-xs font-bold text-emerald-600 block">Langkah 2</span>
+                            <span class="font-heading font-bold text-slate-800 text-sm">Mencoba</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-down md:fa-arrow-right text-emerald-400"></i>
+                        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 w-full">
+                            <span class="text-xs font-bold text-amber-600 block">Langkah 3</span>
+                            <span class="font-heading font-bold text-slate-800 text-sm">Belajar/Berlatih</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-down md:fa-arrow-right text-amber-400"></i>
+                        <div class="bg-purple-50 border border-purple-200 rounded-2xl p-3 w-full">
+                            <span class="text-xs font-bold text-purple-600 block">Langkah 4</span>
+                            <span class="font-heading font-bold text-slate-800 text-sm">Mengenali Kemampuan</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-down md:fa-arrow-right text-purple-400"></i>
+                        <div class="bg-indigo-600 text-white rounded-2xl p-3 w-full shadow-md">
+                            <span class="text-xs font-bold text-indigo-200 block">Hasil Akhir</span>
+                            <span class="font-heading font-bold text-sm">Mengembangkan Bakat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-3">
+                    <h3 class="font-heading font-bold text-emerald-900 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-palette text-emerald-600"></i> Contoh Kasus: Seseorang yang Tertarik Menggambar
+                    </h3>
+                    <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                        Jika kamu tertarik gambar tetapi hasil gambarmu sekarang belum rapi, <strong>jangan berkecil hati!</strong> Bakat menggambar tidak langsung muncul seketika. Ikuti 3 langkah penting:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-xs">
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 font-medium text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-500"></i>
+                            <span>1. Rutin berlatih menggambar setiap hari.</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 font-medium text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-500"></i>
+                            <span>2. Pelajari teknik menggambar baru dari buku/video.</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 font-medium text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-500"></i>
+                            <span>3. Jangan pernah menyerah walau pernah gagal.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTAL 6 CONTENT -->
+            <section id="portal-6-content" class="portal-view hidden space-y-6 fade-in">
+                <div class="bg-gradient-to-r from-amber-500 to-rose-500 rounded-3xl p-6 text-white shadow-xl flex items-center justify-between">
+                    <div>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm inline-block mb-1">Portal 6</span>
+                        <h2 class="font-heading text-2xl font-bold">Latihan Pemahaman</h2>
+                        <p class="text-amber-100 text-xs md:text-sm">Uji pemahamanmu tentang Bab 3 "Temukan Minat, Tunjukkan Bakat"</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                </div>
+
+                <!-- Student Identity Form -->
+                <div id="identity-card" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-slate-800">Identitas Siswa</h3>
+                            <p class="text-xs text-slate-500">Isi nama lengkapmu sebelum mengerjakan soal!</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="student-name" class="block text-xs font-bold text-slate-700 uppercase mb-2">Nama Lengkap Siswa <span class="text-rose-500">*</span></label>
+                        <input type="text" id="student-name" placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition text-sm">
+                        <p id="name-error" class="hidden text-xs text-rose-500 mt-1 font-semibold">Silakan isi nama lengkapmu terlebih dahulu!</p>
+                    </div>
+                </div>
+
+                <!-- Quiz Form -->
+                <form id="quiz-form" onsubmit="evaluateQuiz(event)" class="space-y-6">
+
+                    <!-- SECTION I -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full text-xs">Bagian I</span>
+                                <h3 class="font-heading font-bold text-base md:text-lg text-slate-800">Soal Benar / Salah</h3>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500">5 Soal • Maks 25 Poin</span>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                                <p class="text-sm font-medium text-slate-800">
+                                    1. Ucok mulai tertarik pada bidang elektronik karena sejak kecil ia suka membongkar barang elektronik di rumah.
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_0" value="Benar" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required> Benar
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_0" value="Salah" class="w-4 h-4 text-amber-600 focus:ring-amber-500"> Salah
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                                <p class="text-sm font-medium text-slate-800">
+                                    2. Ucok langsung menjadi ahli robotik tanpa perlu membaca buku, menonton video, atau mengikuti kegiatan belajar tambahan.
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_1" value="Benar" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required> Benar
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_1" value="Salah" class="w-4 h-4 text-amber-600 focus:ring-amber-500"> Salah
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                                <p class="text-sm font-medium text-slate-800">
+                                    3. Ayah Ucok membantu mengembangkan minatnya dengan mengajaknya mendaftar ke klub robotik.
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_2" value="Benar" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required> Benar
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_2" value="Salah" class="w-4 h-4 text-amber-600 focus:ring-amber-500"> Salah
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                                <p class="text-sm font-medium text-slate-800">
+                                    4. Ucok mulai merasa percaya diri setelah mengikuti lomba robotik pertamanya dan mendapat tanggapan positif dari juri.
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_3" value="Benar" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required> Benar
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_3" value="Salah" class="w-4 h-4 text-amber-600 focus:ring-amber-500"> Salah
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                                <p class="text-sm font-medium text-slate-800">
+                                    5. Menurut Ucok, seseorang sebaiknya menghindari kegiatan baru jika belum yakin memiliki bakat di bidang tersebut.
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_4" value="Benar" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required> Benar
+                                    </label>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                                        <input type="radio" name="tf_4" value="Salah" class="w-4 h-4 text-amber-600 focus:ring-amber-500"> Salah
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION II -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-rose-100 text-rose-800 font-bold px-3 py-1 rounded-full text-xs">Bagian II</span>
+                                <h3 class="font-heading font-bold text-base md:text-lg text-slate-800">Soal Uraian</h3>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500">5 Soal • Maks 75 Poin</span>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div class="space-y-2">
+                                <label for="essay_0" class="block text-sm font-medium text-slate-800">
+                                    1. Sebutkan 2 kegiatan Ucok mengembangkan ketertarikannya setelah membongkar barang!
+                                </label>
+                                <textarea id="essay_0" rows="3" placeholder="Tuliskan jawabanmu di sini..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm transition" required></textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="essay_1" class="block text-sm font-medium text-slate-800">
+                                    2. Mengapa pengalaman lomba robotik pertama membuat Ucok semakin percaya diri? Jelaskan hubungannya!
+                                </label>
+                                <textarea id="essay_1" rows="3" placeholder="Tuliskan jawabanmu di sini..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm transition" required></textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="essay_2" class="block text-sm font-medium text-slate-800">
+                                    3. Bagaimana bantuan Ayah Ucok memengaruhi perkembangan minat & bakat Ucok?
+                                </label>
+                                <textarea id="essay_2" rows="3" placeholder="Tuliskan jawabanmu di sini..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm transition" required></textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="essay_3" class="block text-sm font-medium text-slate-800">
+                                    4. Apa kesimpulan tentang hubungan minat, kemauan belajar, dan perkembangan bakat dari kisah Ucok?
+                                </label>
+                                <textarea id="essay_3" rows="3" placeholder="Tuliskan jawabanmu di sini..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm transition" required></textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="essay_4" class="block text-sm font-medium text-slate-800">
+                                    5. Jika tertarik menggambar tetapi belum merasa bagus, sebutkan 3 tindakan sesuai pesan Ucok!
+                                </label>
+                                <textarea id="essay_4" rows="3" placeholder="Tuliskan jawabanmu di sini..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm transition" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-2">
+                        <button type="submit" class="pulse-btn w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-heading font-bold px-10 py-4 rounded-2xl shadow-xl shadow-emerald-200 text-base transition">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Periksa Jawaban & Selesaikan
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Evaluation Result Display Card -->
+                <div id="result-card" class="hidden bg-white rounded-3xl p-6 border-2 border-emerald-400 shadow-2xl space-y-6">
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 text-center space-y-3 relative overflow-hidden">
+                        <span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Hasil Lembar Kerja Siswa</span>
+                        
+                        <h3 class="font-heading text-2xl font-bold" id="result-student-name">Nama Siswa</h3>
+                        
+                        <div class="my-4">
+                            <span class="text-xs uppercase text-slate-400 font-semibold block mb-1">Skor Total Perolehan</span>
+                            <div class="font-heading text-5xl md:text-6xl font-extrabold text-amber-400" id="result-score-total">0</div>
+                            <span class="text-xs text-slate-400">/ 100 Poin Maksimal</span>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300 border-t border-slate-700 pt-3">
+                            <div><i class="fa-solid fa-check-circle text-emerald-400 mr-1"></i> Benar/Salah: <span id="result-tf-score" class="font-bold text-white">0</span>/25</div>
+                            <div><i class="fa-solid fa-file-lines text-amber-400 mr-1"></i> Uraian: <span id="result-essay-score" class="font-bold text-white">0</span>/75</div>
+                            <div><i class="fa-regular fa-clock text-sky-400 mr-1"></i> Waktu: <span id="result-timestamp" class="font-bold text-white">-</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border-2 border-dashed border-amber-400 rounded-2xl p-4 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold mx-auto text-lg">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-amber-900 text-base">PEMBERITAHUAN UNTUK GURU / MENTOR</h4>
+                        <p class="text-xs text-amber-800 leading-relaxed max-w-lg mx-auto">
+                            Silakan <strong>SCREENSHOT (Tangkapan Layar)</strong> halaman hasil ini dan kirimkan ke WhatsApp Pribadi Guru sebagai bukti pengerjaan!
+                        </p>
+                    </div>
+
+                    <div>
+                        <button onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold py-3.5 px-6 rounded-2xl shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 text-sm transition">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Kirim Hasil ke WhatsApp Guru
+                        </button>
+                    </div>
+
+                    <div class="space-y-4 border-t border-slate-100 pt-4">
+                        <h4 class="font-heading font-bold text-base text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-check text-sky-600"></i> Evaluasi & Catatan Perbaikan Soal
+                        </h4>
+                        <p class="text-xs text-slate-500">
+                            Berikut adalah rincian status pengerjaanmu. Nomor yang ditandai <strong>"Salah"</strong> atau <strong>"Kurang Tepat"</strong> perlu dipelajari kembali pada materi portal di atas!
+                        </p>
+
+                        <div id="feedback-list" class="space-y-2 text-xs"></div>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button onclick="resetQuiz()" class="text-slate-500 hover:text-slate-700 font-heading text-xs font-semibold underline">
+                            Ulangi Pengerjaan Latihan
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Bar -->
+    <footer class="mt-12 text-center text-xs text-slate-400 py-4 border-t border-slate-200/60">
+        <p>Aplikasi Pembelajaran Bahasa Indonesia Kelas 6 • Kurikulum Merdeka</p>
+        <p class="mt-1 font-semibold text-slate-500">Bab 3: Temukan Minat, Tunjukkan Bakat</p>
+    </footer>
+
+    <!-- Application Logic Script -->
+    <script>
+        // Portal Switcher Functionality
+        function switchPortal(portalNumber) {
+            // Hide all portal contents
+            const allViews = document.querySelectorAll('.portal-view');
+            allViews.forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Deactivate all cards
+            const allCards = document.querySelectorAll('.portal-card');
+            allCards.forEach(card => {
+                card.classList.remove('active', 'border-sky-500', 'border-teal-500', 'border-purple-500', 'border-orange-500', 'border-indigo-500', 'border-amber-500', 'ring-2', 'ring-sky-400', 'ring-teal-400', 'ring-purple-400', 'ring-orange-400', 'ring-indigo-400', 'ring-amber-400');
+            });
+
+            // Show target portal content
+            const targetView = document.getElementById(`portal-${portalNumber}-content`);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+            }
+
+            // Highlight active button
+            const activeCard = document.getElementById(`btn-portal-${portalNumber}`);
+            if (activeCard) {
+                activeCard.classList.add('active', 'ring-2');
+                if(portalNumber === 1) activeCard.classList.add('ring-sky-400');
+                if(portalNumber === 2) activeCard.classList.add('ring-teal-400');
+                if(portalNumber === 3) activeCard.classList.add('ring-purple-400');
+                if(portalNumber === 4) activeCard.classList.add('ring-orange-400');
+                if(portalNumber === 5) activeCard.classList.add('ring-indigo-400');
+                if(portalNumber === 6) activeCard.classList.add('ring-amber-400');
+            }
+
+            // Scroll smoothly to content area
+            const contentArea = document.getElementById('portal-content-area');
+            contentArea.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize default portal on load
+        window.onload = function() {
+            switchPortal(1);
+        };
+
+        // Simulation interactive feedback logic (Portal 4)
+        function checkSim(buttonEl, isCorrect) {
+            const parent = buttonEl.closest('.bg-white');
+            const feedbackEl = parent.querySelector('.sim-feedback');
+            
+            const allBtns = parent.querySelectorAll('button');
+            allBtns.forEach(b => {
+                b.classList.remove('bg-emerald-100', 'border-emerald-400', 'bg-rose-100', 'border-rose-400');
+            });
+
+            feedbackEl.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if (isCorrect) {
+                buttonEl.classList.add('bg-emerald-100', 'border-emerald-400');
+                feedbackEl.classList.add('bg-emerald-100', 'text-emerald-800');
+                feedbackEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Tepat sekali! Jawaban didasarkan pada fakta dialog Ucok.';
+            } else {
+                buttonEl.classList.add('bg-rose-100', 'border-rose-400');
+                feedbackEl.classList.add('bg-rose-100', 'text-rose-800');
+                feedbackEl.innerHTML = '<i class="fa-solid fa-circle-xmark text-rose-600 mr-1"></i> Kurang tepat! Cari kesimpulan yang memiliki bukti dalam naskah dialog.';
+            }
+        }
+
+        // Quiz State & Grading Logic
+        let lastEvaluationData = null;
+
+        const tfAnswerKeys = ["Benar", "Salah", "Benar", "Benar", "Salah"];
+
+        const essayRubrics = [
+            { keywords: [/baca|membaca|buku/i, /nonton|menonton|video/i], maxScore: 15 },
+            { keywords: [/juri|tanggapan|pujian|masukan/i, /sadar|percaya|kemampuan|mengasah/i], maxScore: 15 },
+            { keywords: [/komponen|membeli|belikan/i, /klub|les|tempat|daftar|mengantar/i], maxScore: 15 },
+            { keywords: [/latih|berlatih|tekun|belajar/i, /menyerah|mencoba|proses/i], maxScore: 15 },
+            { keywords: [/latih|berlatih/i, /teknik|buku|video|belajar/i, /menyerah|mencoba|rutin/i], maxScore: 15 }
+        ];
+
+        function evaluateQuiz(event) {
+            event.preventDefault();
+
+            const studentNameInput = document.getElementById('student-name').value.trim();
+            const nameError = document.getElementById('name-error');
+
+            if (!studentNameInput) {
+                nameError.classList.remove('hidden');
+                document.getElementById('identity-card').scrollIntoView({ behavior: 'smooth' });
+                return;
+            } else {
+                nameError.classList.add('hidden');
+            }
+
+            // Section I Evaluation
+            let tfScore = 0;
+            let tfResults = [];
+
+            for (let i = 0; i < 5; i++) {
+                const selectedRadio = document.querySelector(`input[name="tf_${i}"]:checked`);
+                const userVal = selectedRadio ? selectedRadio.value : "";
+                const isCorrect = (userVal === tfAnswerKeys[i]);
+
+                if (isCorrect) {
+                    tfScore += 5;
+                    tfResults.push(true);
+                } else {
+                    tfResults.push(false);
+                }
+            }
+
+            // Section II Evaluation
+            let essayScore = 0;
+            let essayResults = [];
+
+            for (let i = 0; i < 5; i++) {
+                const userAns = document.getElementById(`essay_${i}`).value.trim();
+                const rubric = essayRubrics[i];
+                let matchedCount = 0;
+
+                rubric.keywords.forEach(regex => {
+                    if (regex.test(userAns)) {
+                        matchedCount++;
+                    }
+                });
+
+                let qScore = 0;
+
+                if (matchedCount >= rubric.keywords.length) {
+                    qScore = 15;
+                } else if (matchedCount > 0) {
+                    qScore = 8;
+                } else {
+                    qScore = 0;
+                }
+
+                if (userAns.length > 30 && qScore < 15 && matchedCount > 0) {
+                    qScore = 12;
+                }
+
+                essayScore += qScore;
+                essayResults.push({ score: qScore });
+            }
+
+            const totalScore = tfScore + essayScore;
+
+            const now = new Date();
+            const timeOptions = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const formattedTimestamp = now.toLocaleDateString('id-ID', timeOptions) + " WITA";
+
+            lastEvaluationData = {
+                studentName: studentNameInput,
+                totalScore: totalScore,
+                tfScore: tfScore,
+                essayScore: essayScore,
+                timestamp: formattedTimestamp,
+                tfResults: tfResults,
+                essayResults: essayResults
+            };
+
+            // Render Results
+            document.getElementById('result-student-name').innerText = studentNameInput;
+            document.getElementById('result-score-total').innerText = totalScore;
+            document.getElementById('result-tf-score').innerText = tfScore;
+            document.getElementById('result-essay-score').innerText = essayScore;
+            document.getElementById('result-timestamp').innerText = formattedTimestamp;
+
+            const feedbackContainer = document.getElementById('feedback-list');
+            feedbackContainer.innerHTML = '';
+
+            tfResults.forEach((passed, idx) => {
+                const item = document.createElement('div');
+                item.className = `p-3 rounded-xl border flex items-center justify-between ${passed ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'}`;
+                
+                item.innerHTML = `
+                    <span class="font-semibold">Soal B/S No. ${idx + 1}</span>
+                    <span class="font-bold px-2 py-0.5 rounded-md text-xs ${passed ? 'bg-emerald-200 text-emerald-800' : 'bg-rose-200 text-rose-800'}">
+                        ${passed ? '<i class="fa-solid fa-check"></i> Benar' : '<i class="fa-solid fa-xmark"></i> Salah'}
+                    </span>
+                `;
+                feedbackContainer.appendChild(item);
+            });
+
+            essayResults.forEach((res, idx) => {
+                const item = document.createElement('div');
+                const isFull = res.score >= 12;
+                const isPartial = res.score > 0 && res.score < 12;
+
+                item.className = `p-3 rounded-xl border flex items-center justify-between ${isFull ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : (isPartial ? 'bg-amber-50 border-amber-200 text-amber-900' : 'bg-rose-50 border-rose-200 text-rose-900')}`;
+                
+                item.innerHTML = `
+                    <span class="font-semibold">Soal Uraian No. ${idx + 1}</span>
+                    <span class="font-bold px-2 py-0.5 rounded-md text-xs ${isFull ? 'bg-emerald-200 text-emerald-800' : (isPartial ? 'bg-amber-200 text-amber-800' : 'bg-rose-200 text-rose-800')}">
+                        ${isFull ? 'Sangat Baik (' + res.score + ' Poin)' : (isPartial ? 'Kurang Lengkap (' + res.score + ' Poin)' : 'Kurang Tepat (0 Poin)')}
+                    </span>
+                `;
+                feedbackContainer.appendChild(item);
+            });
+
+            document.getElementById('quiz-form').classList.add('hidden');
+            document.getElementById('identity-card').classList.add('hidden');
+            
+            const resultCard = document.getElementById('result-card');
+            resultCard.classList.remove('hidden');
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendToWhatsApp() {
+            if (!lastEvaluationData) return;
+
+            const d = lastEvaluationData;
+            
+            let text = `*LEMBAR HASIL LATIHAN PEMAHAMAN BAHASA INDONESIA*\n`;
+            text += `*Bab 3: Temukan Minat, Tunjukkan Bakat*\n\n`;
+            text += `👤 *Nama Siswa:* ${d.studentName}\n`;
+            text += `📊 *Skor Total:* ${d.totalScore} / 100\n`;
+            text += `├ Bagian I (Benar/Salah): ${d.tfScore} / 25\n`;
+            text += `└ Bagian II (Uraian): ${d.essayScore} / 75\n\n`;
+            text += `⏰ *Waktu Selesai:* ${d.timestamp}\n\n`;
+            text += `_Pesan otomatis dikirim melalui Aplikasi Pembelajaran Interaktif Bahasa Indonesia Kelas 6._`;
+
+            const encodedText = encodeURIComponent(text);
+            const waUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
+
+            window.open(waUrl, '_blank');
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-form').reset();
+            document.getElementById('quiz-form').classList.remove('hidden');
+            document.getElementById('identity-card').classList.remove('hidden');
+            document.getElementById('result-card').classList.add('hidden');
+            switchPortal(6);
+        }
+    </script>
+</body>
+</html>
